@@ -1,1 +1,32 @@
 About DNS(Domain name System)
+
+[ Your Browser ]
+         │
+         │ 1. Request: "What is the IP for example.com?"
+         ▼
+ ┌───────────────┐
+ │ DNS Resolver  │◄────────────────────────────────────────────────┐
+ └───────┬───────┘                                                 │
+         │                                                         │
+         │ 2. Query Root                 3. Response:              │
+         ├──────────────────────────────► "Go ask the .com TLD"   │
+         ▼                                                         │
+ ┌───────────────┐                                                 │
+ │ Root Server   │                                                 │
+ └───────────────┘                                                 │
+         │                                                         │
+         │ 4. Query TLD                  5. Response:              │ 8. Returns IP
+         ├──────────────────────────────► "Go ask Authoritative"  │    to Browser
+         ▼                                                         │
+ ┌───────────────┐                                                 │
+ │  TLD Server   │                                                 │
+ │    (.com)     │                                                 │
+ └───────────────┘                                                 │
+         │                                                         │
+         │ 6. Query Authoritative        7. Response:              │
+         ├──────────────────────────────► "The IP is 93.184.216.34"│
+         ▼                                                         │
+ ┌───────────────┐                                                 │
+ │ Authoritative │                                                 │
+ │  Name Server  │─────────────────────────────────────────────────┘
+ └───────────────┘
